@@ -1,0 +1,25 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/helpers";
+@import "bootstrap/scss/utilities/api";
+@import "bootstrap/scss/list-group";
+
+*, html, body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.container {
+    width: auto;
+    max-width: 620px;
+    padding: 0 15px;
+}
+@import "@fortawesome/fontawesome-free/css/all.css";
