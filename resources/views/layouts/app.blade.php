@@ -14,14 +14,13 @@
     <meta property="og:image" content="{{ asset('who.jpg') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="preload" as="style" onload="this.rel='stylesheet'">
     @vite(['resources/css/app.scss'])
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="d-flex flex-column align-items-center justify-content-center position-relative
 @if(request()->routeIs('home')) vh-100 @endif bg-light">
     <main class="flex-shrink-0">
         @yield('content')
     </main>
-    @vite(['resources/js/app.js'])
 </body>
 </html>
