@@ -21,24 +21,54 @@
 
         <div class="row mt-5">
             <div class="col-sm-12">
-                <div class="list-group text-start">
-                    @if(!empty($devArticles))
-                        @foreach($devArticles as $article)
-                            <a href="{{ $article['url'] }}" class="list-group-item list-group-item-action mb-4 py-3 rounded-0"
+                @if(!empty($devArticles))
+                    @foreach($devArticles as $article)
+                        <div class="list-group text-start">
+                            <a href="{{ $article['url'] }}"
+                               class="list-group-item list-group-item-action mb-4 py-3 rounded-0"
                                target="_blank">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h3 class="fs-3 mb-2">{{ $article['title'] }}</h3>
                                     <small><i class="fab fa-dev fa-2x"></i></small>
                                 </div>
                                 <p class="mb-4 justify-content-start">{{ $article['description'] }}</p>
-                                <small class="text-muted d-block mb-1"><i class="fas fa-calendar-alt me-1"></i> {{ \Carbon\Carbon::parse($article['published_timestamp'])->format('d/m/Y H:i') }}</small>
+                                <small class="text-muted d-block mb-1"><i
+                                        class="fas fa-calendar-alt me-1"></i> {{ \Carbon\Carbon::parse($article['published_timestamp'])->format('d/m/Y H:i') }}
+                                </small>
                                 <small class="text-muted"><i class="fa fa-tags me-1"></i> {{ $article['tags'] }}</small>
                             </a>
-                        @endforeach
-                    @else
-                        <p class="fs-5 text-muted">Herhangi bir sonuç bulunamadı.</p>
-                    @endif
-                </div>
+                        </div>
+                    @endforeach
+
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            @if(is_null($prevPage))
+                                <li class="page-item disabled">
+                                    <a class="page-link">Önceki</a>
+                                </li>
+                            @else
+                                <li class="page-item">
+                                    <a href="{{ route('blog', ['page' => $prevPage]) }}" class="page-link text-dark">
+                                        Önceki
+                                    </a>
+                                </li>
+                            @endif
+                            @if(is_null($nextPage))
+                                <li class="page-item disabled">
+                                    <a class="page-link">Sonraki</a>
+                                </li>
+                            @else
+                                <li class="page-item">
+                                    <a href="{{ route('blog', ['page' => $nextPage]) }}" class="page-link text-dark">
+                                        Sonraki
+                                    </a>
+                                </li>
+                            @endif
+                        </ul>
+                    </nav>
+                @else
+                    <p class="fs-5 text-muted">Herhangi bir sonuç bulunamadı.</p>
+                @endif
             </div>
         </div>
     </div>
