@@ -52,7 +52,7 @@
                 </a>
             @endif
             @if(env('MEDIUM'))
-                <a href="https://medium.com/{{ env('MEDIUM') }}" class="text-decoration-none">
+                <a href="https://{{ env('MEDIUM') }}.medium.com/" class="text-decoration-none">
                     <i class="fab fa-medium fa-2x text-dark"></i>
                 </a>
             @endif
